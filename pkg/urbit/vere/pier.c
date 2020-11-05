@@ -695,11 +695,28 @@ _pier_on_lord_wyrd_bail(void* ptr_v, u3_ovum* egg_u, u3_noun lud)
 
   c3_assert( u3_psat_wyrd == pir_u->sat_e );
 
+#if 0
   //  print %wyrd failure and exit
   //
   //    XX check bail mote, retry on %intr, %meme, &c
   //
   _pier_wyrd_fail(pir_u, egg_u, lud);
+#else
+  //  XX temporary hack to fake %wyrd success
+  //
+  {
+    u3_lord* god_u = pir_u->god_u;
+    u3_noun    cad = u3nc(c3__wend, u3k(u3t(u3t(egg_u->cad))));
+    u3_noun    wir = u3nt(u3_blip, c3__arvo, u3_nul);
+    u3_gift* gif_u = u3_gift_init(god_u->eve_d, u3nc(u3nc(wir, cad), u3_nul));
+
+    pir_u->log_u->dun_d--;
+
+    _pier_wyrd_good(pir_u, egg_u, gif_u);
+
+    pir_u->log_u->dun_d++;
+  }
+#endif
 }
 
 /* _pier_wyrd_init(): send %wyrd.
