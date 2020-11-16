@@ -16,7 +16,7 @@ export const DATESTAMP_FORMAT = '[~]YYYY.M.D';
 export const UnreadMarker = React.forwardRef(({ dayBreak, when }, ref) => (
   <Row ref={ref} color='blue' alignItems='center' fontSize='0' position='absolute' width='100%' py='2'>
     <Rule borderColor='blue' display={['none', 'block']} m='0' width='2rem' />
-    <Text flexShrink='0' display='block' zIndex='2' mx='4' color='blue'>New messages below</Text>
+    <Text display='block' zIndex='2' mx='4' color='blue'>New messages below</Text>
     <Rule borderColor='blue' flexGrow='1' m='0'/>
     <Rule style={{ width: "calc(50% - 48px)" }} borderColor='blue' m='0' />
   </Row>
@@ -245,7 +245,7 @@ export class MessageWithSigil extends PureComponent<MessageProps> {
               }}
               title={`~${msg.author}`}
             >{name}</Text>
-            <Text flexShrink='0' gray mono className="v-mid">{timestamp}</Text>
+            <Text gray mono className="v-mid">{timestamp}</Text>
             <Text gray mono ml={2} className="v-mid child dn-s">{datestamp}</Text>
           </Box>
           <Box fontSize={fontSize ? fontSize : '14px'}><MessageContent content={msg.letter} remoteContentPolicy={remoteContentPolicy} measure={measure} fontSize={fontSize} /></Box>
